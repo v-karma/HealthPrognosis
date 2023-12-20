@@ -1,0 +1,171 @@
+{% extends 'main.html' %}
+{% block content %}
+{% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+
+        
+        <style>
+            .carousel-container {
+                padding-left: 100px;
+                padding-right: 100px;
+                position: relative;
+                z-index: 1;
+                margin-bottom: 20px;
+            }
+    
+            .carousel img {
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 70%;
+            }
+    
+            .container {
+                margin-top: 50px; /* Adjust as needed */
+                margin-bottom: 20px;
+                background-color: white; /* Optional: Set a background color for better visibility */
+            }
+    
+            /* Style for carousel control buttons */
+            .carousel-control-prev,
+            .carousel-control-next {
+                color: black;
+                width: auto;
+                text-align: center;
+            }
+    
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                background-color: black;
+            }
+        </style>
+    
+        <div class="carousel-container">
+            <div id="imageCarousel" class="carousel-container carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ url_for('static', filename='background.jpg') }}" class="d-block w-100" alt="Image 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='bg1.jpg') }}" class="d-block w-100" alt="Image 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='bg2.jpg') }}" class="d-block w-100" alt="Image 3">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row mb-4">
+                    <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#diabetesInfo" aria-expanded="false" aria-controls="diabetesInfo">
+                        Diabetes
+                    </button>
+                    <div class="collapse" id="diabetesInfo">
+                        <div class="card card-body" style="box-shadow: 0 0 5px black;">
+                            <p>Diabetes is a disease that occurs when your blood glucose, also called blood sugar, is too high. Blood glucose is your main source of energy and comes from the food you eat. Insulin, a hormone made by the pancreas, helps glucose from food get into your cells to be used for energy. Sometimes your body doesn’t make enough—or any—insulin or doesn’t use insulin well. Glucose then stays in your blood and doesn’t reach your cells.</p>
+                            <h5>Symptoms</h5>
+                            <ul>
+                                <li>Urinating often.</li>
+                                <li>Feeling very thirsty.</li>
+                                <li>Extreme fatigue.</li>
+                                <li>Blurry vision.</li>
+                            </ul>
+                            <button class="btn btn-secondary btn-block" onclick="location.href='{{ url_for('diabetesPage') }}'" style="background-color: #0a2463; color: white;">
+                                Diabetes Prediction
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                        <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#breastCancerInfo" aria-expanded="false" aria-controls="breastCancerInfo">
+                            Breast Cancer
+                        </button>
+                        <div class="collapse" id="breastCancerInfo">
+                            <div class="card card-body" style="box-shadow: 0 0 5px black;">
+                                <p>Breast cancer is cancer that forms in the cells of the breasts. After skin cancer, breast cancer is the most common cancer diagnosed in women in the United States. Breast cancer can occur in both men and women, but it's far more common in women.</p>
+                                <h5>Symptoms</h5>
+                                <ul>
+                                    <li>A breast lump or thickening that feels different from the surrounding tissue</li>
+                                    <li>Change in the size, shape, or appearance of a breast</li>
+                                    <li>Changes to the skin over the breast, such as dimpling</li>
+                                    <li>Redness or pitting of the skin over your breast, like the skin of an orange</li>
+                                </ul>
+                                <button class="btn btn-secondary btn-block" onclick="location.href='{{ url_for('cancerPage') }}'" style="background-color: #0a2463; color: white;">
+                                    Breast Cancer Prediction
+                                </button>
+                            </div>
+                        </div>
+                </div>
+                <div class="row mb-4">
+                        <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#liverInfo" aria-expanded="false" aria-controls="liverInfo">
+                            Liver Disease
+                        </button>
+                        <div class="collapse" id="liverInfo">
+                            <div class="card card-body" style="box-shadow: 0 0 5px black;">
+                                <p>Symptoms of liver disease can vary, but they often include swelling of the abdomen and legs, bruising easily, changes in the color of your stool and urine, and jaundice, or yellowing of the skin and eyes. Sometimes there are no symptoms. Tests such as imaging tests and liver function tests can check for liver damage and help to diagnose liver diseases.</p>
+                                 <button class="btn btn-secondary btn-block" onclick="location.href='{{ url_for('liverPage') }}'" style="background-color: #0a2463; color: white;">
+                                    Liver Disease Prediction
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="row mb-4">
+                        <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#malariaInfo" aria-expanded="false" aria-controls="malariaInfo">
+                            Malaria
+                        </button>
+                        <div class="collapse" id="malariaInfo">
+                            <div class="card card-body" style="box-shadow: 0 0 5px black;">
+                                <p>Malaria is a mosquito-borne infectious disease that affects humans and other animals. Malaria causes symptoms that typically include fever, tiredness, vomiting, and headaches. In severe cases, it can cause yellow skin, seizures, coma, or death. Symptoms usually begin ten to fifteen days after being bitten by an infected mosquito. If not properly treated, people may have recurrences of the disease months later.</p>
+                                <h5>Symptoms</h5>
+                                <ul>
+                                    <li>Fever. This is the most common symptom.</li>
+                                    <li>Chills</li>
+                                    <li>Headache</li>
+                                    <li>Nausea and vomiting</li>
+                                </ul>
+                                
+                                <button class="btn btn-secondary btn-block" onclick="location.href='{{ url_for('malariaPage') }}'" style="background-color: #0a2463; color: white;">
+                                    Malaria Prediction
+                                </button>
+                            </div>
+                        </div>
+                </div>
+                    <div class="row mb-4">                        
+                        <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#pneumoniaInfo" aria-expanded="false" aria-controls="pneumoniaInfo">
+                            Pneumonia
+                        </button>
+                        <div class="collapse" id="pneumoniaInfo">
+                            <div class="card card-body" style="box-shadow: 0 0 5px black;">
+                                <p>Pneumonia is an infection that inflames the air sacs in one or both lungs. The air sacs may fill with fluid or pus (purulent material), causing cough with phlegm or pus, fever, chills, and difficulty breathing. A variety of organisms, including bacteria, viruses, and fungi, can cause pneumonia.</p>
+                                <h5>Symptoms</h5>
+                                <ul>
+                                    <li>Cough, which may produce greenish, yellow or even bloody mucus.</li>
+                                    <li>Fever, sweating and shaking chills.</li>
+                                    <li>Shortness of breath.</li>
+                                    <li>Rapid, shallow breathing.</li>
+                                </ul>
+                                <!-- Button to navigate to pneumonia.html -->
+                                <button class="btn btn-secondary btn-block" onclick="location.href='{{ url_for('pneumoniaPage') }}'" style="background-color: #0a2463; color: white;">
+                                    Pneumonia Prediction
+                                </button>
+                            </div>
+                        </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>   
+
+{% endblock %}
